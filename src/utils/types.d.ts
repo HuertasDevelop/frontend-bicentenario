@@ -1,23 +1,44 @@
+interface Area {
+  id: number;
+  photo: string;
+  name: string;
+}
+interface Benefit {
+  id: number;
+  name: string;
+  description: string;
+}
+interface Gallery {
+  id: number;
+  photo: string;
+  alt: string;
+}
+
 interface Project {
   id: number;
   name: string;
+  slug: string;
+  description: string;
+  place: string;
   from_price: number;
   price: number;
+  from_area: number;
+  type_coin: "PEN" | "USD";
+  people_card: string;
+  banner_card: string;
+  slogan: string;
+  banner_detail: string;
+  banner: string;
+  link_banner_video: string;
   location: string;
   ref_location: string;
-  description: string;
-  areas: string;
-  benefits: string;
   photo_map: string;
-  photo_banner: string;
-  photo_video: string;
-  photo_miniature: string;
-  people_miniature: string;
-  link_video: string;
-  slug: string;
-  type_coin: string;
-  from_area: number;
-  logo: string;
+  link_google_maps: string;
+  link_waze: string;
+  photo_feature: string;
+  benefits: Benefit[];
+  areas: Area[];
+  gallery: Gallery[];
 }
 
 interface Carousel {

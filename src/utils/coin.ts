@@ -1,38 +1,28 @@
-//format coin DOLLAR
-
 const formatCoinDollar = (coin: number) => {
-  return coin.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
+  //sin decimales
+  return coin
+    .toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    })
+    .replace(".00", "");
 };
-
-//format coin EURO
-
-const formatCoinEuro = (coin: number) => {
-  return coin.toLocaleString("de-DE", {
-    style: "currency",
-    currency: "EUR",
-  });
-};
-
-//format coin PEN
 
 const formatCoinPen = (coin: number) => {
-  return coin.toLocaleString("es-PE", {
-    style: "currency",
-    currency: "PEN",
-  });
+  return coin
+    .toLocaleString("es-PE", {
+      style: "currency",
+      currency: "PEN",
+    })
+    .replace(".00", "");
 };
 
-const formatCoin = (coin: number, typeCoin: string) => {
+const formatCoin = (coin: number, typeCoin: "USD" | "PEN") => {
   if (coin === undefined) return 0;
 
   switch (typeCoin) {
     case "USD":
       return `$ ${formatCoinDollar(coin)}`;
-    case "EURO":
-      return `€ ${formatCoinEuro(coin)}`;
     case "PEN":
       return `S/. ${formatCoinPen(coin)}`;
     default:
