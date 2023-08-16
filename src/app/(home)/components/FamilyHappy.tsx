@@ -7,7 +7,7 @@ type Props = {
 const FamilyHappy = async ({ promise }: Props) => {
   const comments = await promise;
   return (
-    <div className="flex w-full justify-between space-x-20">
+    <div className="flex md:flex-row flex-col space-y-10 md:space-y-0  w-full justify-between md:space-x-20">
       <div className="flex items-center bg-primary py-10 px-20 rounded-r-3xl">
         <span className="text-7xl font-bold text-secondary-900 mr-2">+</span>
         <p>

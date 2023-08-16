@@ -30,8 +30,8 @@ export default function Navbar() {
         <Image
           src="/icons/logo.svg"
           alt="Logo"
-          width={150}
-          height={150}
+          width={130}
+          height={100}
           className="cursor-pointer"
         />
       </Link>
@@ -55,45 +55,38 @@ export default function Navbar() {
   const guestLinks = (isMobile: boolean) => (
     <>
       <NavLink
-        isSelected={isSelected("/auth/login")}
+        isSelected={isSelected("/proyectos")}
         isMobile={isMobile}
-        href="/auth/login"
+        href="/proyectos"
       >
-        Ingresar
+        Proyectos
       </NavLink>
       <NavLink
-        isSelected={isSelected("/auth/login")}
+        isSelected={isSelected("/nosotros")}
         isMobile={isMobile}
-        href="/auth/login"
+        href="/nosotros"
       >
-        Ingresar
+        Nosotros
       </NavLink>
       <NavLink
-        isSelected={isSelected("/auth/login")}
+        isSelected={isSelected("/contactanos")}
         isMobile={isMobile}
-        href="/auth/login"
+        href="/contactanos"
       >
-        Ingresar
+        contáctanos
       </NavLink>
       <NavLink
-        isSelected={isSelected("/auth/login")}
+        isSelected={isSelected("/blog")}
         isMobile={isMobile}
-        href="/auth/login"
+        href="/blog"
       >
-        Ingresar
-      </NavLink>
-      <NavLink
-        isSelected={isSelected("/auth/register")}
-        isMobile={isMobile}
-        href="/auth/register"
-      >
-        Registrarse
+        Blog
       </NavLink>
     </>
   );
 
   return (
-    <Disclosure as="nav" className="bg-white py-5 sticky top-0 z-50">
+    <Disclosure as="nav" className="bg-gray-50  py-5 sticky top-0 z-50">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  pb-3  ">
@@ -108,12 +101,12 @@ export default function Navbar() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex  items-center justify-between w-full">
+              <div className="flex  items-center justify-between w-full  ">
                 <div className="flex flex-shrink-0 items-center">
                   {logoLink(false)}
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4 bg-primary py-5 rounded-l-3xl">
+                  <div className="flex space-x-10  py-5 rounded-l-3xl">
                     {isAuthenticated ? authLinks(false) : guestLinks(false)}
                   </div>
                 </div>

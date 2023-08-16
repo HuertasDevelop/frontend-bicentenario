@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Provider>
       <Setup />
-      <BannerHome />
+      {/* <BannerHome /> */}
       <Navbar />
       <div className=" ">{children}</div>
       <Footer />

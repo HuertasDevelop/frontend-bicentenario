@@ -20,10 +20,10 @@ export default function NavLink({
 }: Props) {
   const className = cn(
     rest.className,
-    "text-gray-900 uppercase  font-bold p-2",
+    "text-gray-900 uppercase  font-bold p-2 border-b ",
     {
-      "bg-gray-900 text-white": isSelected,
-      "text-gray-300 hover:bg-gray-700 hover:text-white":
+      "border-b-2 border-primary": isSelected,
+      "text-gray-300 hover:border-b-2  hover:border-primary border-transparent":
         !isSelected && !isBanner,
       "block text-base": isMobile,
       "text-sm": !isMobile,

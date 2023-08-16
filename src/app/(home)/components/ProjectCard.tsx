@@ -39,12 +39,13 @@ const ProjectCard = ({
         </div>
       </div>
 
-      <div className="absolute top-0 right-5 bg-primary pb-4 rounded-b-xl">
+      <div className="absolute top-0 right-5 bg-primary pb-5 rounded-b-xl">
         <div className="flex flex-col items-center">
-          <p className="text-white text-2xl font-bold">Asia</p>
-          <p className="text-sm">
+          <p className="text-white text-2xl font-bold mb-6">Asia</p>
+          <p className="text-sm ">
             Al contado desde:
-            <br /> <span className="text-2xl font-extrabold">{from_price}</span>
+            <br />{" "}
+            <span className="text-2xl  font-extrabold">{from_price}</span>
           </p>
           <p className="bg-white text-secondary-900 w-full px-5">
             Inicial desde:

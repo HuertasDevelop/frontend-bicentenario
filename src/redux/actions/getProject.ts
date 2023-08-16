@@ -1,9 +1,9 @@
 import { cache } from "react";
 import "server-only";
 
-export const getSlugProject = cache(async (slug: string) => {
+export const getProject = cache(async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/projects/${slug}/`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/web/project/`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -11,6 +11,7 @@ export const getSlugProject = cache(async (slug: string) => {
       },
     }
   );
-  const project = (await res.json()) as Project;
+
+  const project = (await res.json()) as Home[];
   return project;
 });

@@ -20,12 +20,12 @@ export default function Home() {
       {/* <HeroSectionHome /> */}
       <CarouselHome promise={carouselData} />
 
-      <div className="bg-gray-300  -pt-4 flex justify-center">
+      {/* <div className="bg-gray-300  -pt-4 flex justify-center">
         <p className=" bg-primary text-white text-4xl font-bold text-center  px-20 rounded-t-3xl py-3">
           Obtén tu lote soñado con intereses <br /> bajísimoscon intereses
           bajísimos
         </p>
-      </div>
+      </div> */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <TittleText text="Proyectos disponibles" />
         <Suspense fallback={<>loading...</>}>
@@ -46,7 +46,7 @@ async function ProjectsList({ promise }: { promise: Promise<Project[]> }) {
   const projects = await promise;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-12">
       {projects.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))}

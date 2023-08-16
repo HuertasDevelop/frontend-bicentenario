@@ -5,12 +5,14 @@ import { useState } from "react";
 import FormData from "./FormData";
 import { SubmitHandler } from "react-hook-form";
 import { FormInput, FormTextArea } from ".";
+import cn from "classnames";
 
 type Props = {
-  image: Home;
+  image?: Home;
+  sticky?: boolean;
 };
 
-const FormLead = ({ image }: Props) => {
+const FormLead = ({ image, sticky }: Props) => {
   const [loading, setLoading] = useState(false);
 
   const onSubmit: SubmitHandler<FormContact> = (data) => {
@@ -20,20 +22,31 @@ const FormLead = ({ image }: Props) => {
     //     if (send) {
     //       location.reload();
     //     }
-    //   })
+    //   })flex bg-primary ml-16 rounded-l-[90px] space-x-24 my-20 sticky top-40
     //   .finally(() => {
     //     setLoading(false);
     //   });
   };
   return (
-    <div className="flex bg-primary ml-16 rounded-l-[90px] space-x-24 my-20">
-      <Image
-        src={`${process.env.NEXT_PUBLIC_MEDIA_URL}${image.photo}`}
-        alt={image?.description}
-        width={500}
-        height={500}
-      />
-      <div className="bg-secondary-900 p-10 -my-10 rounded-[45px]">
+    <div
+      className={cn(
+        "flex flex-col lg:flex-row bg-primary  lg:ml-16 ml-0 rounded-l-[90px] lg:space-x-24 my-20 ",
+        {
+          "rounded-t-[90px]": !image,
+          "sticky top-40": sticky,
+        }
+      )}
+    >
+      {image && (
+        <Image
+          src={`${process.env.NEXT_PUBLIC_MEDIA_URL}${image.photo}`}
+          alt={image?.description}
+          width={500}
+          height={500}
+        />
+      )}
+
+      <div className="bg-secondary-900 p-10 -my-10 rounded-[45px] mx-2">
         <FormData<FormContact> onSubmit={onSubmit}>
           {({ register, watch, reset, formState: { errors } }) => (
             <div className="flex flex-col space-y-5">
@@ -99,7 +112,7 @@ const FormLead = ({ image }: Props) => {
                   <FormTextArea
                     title="Mensaje"
                     id="message"
-                    defaultValue={`Me gustaría recibir más información sobre el proyecto ${name} `}
+                    defaultValue={`Me gustaría recibir más información sobre el proyecto  `}
                     aria-errormessage={
                       errors.message ? "Formato no valido" : undefined
                     }
