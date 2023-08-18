@@ -3,11 +3,10 @@ import Carousel from "nuka-carousel";
 import Image from "next/image";
 import Link from "next/link";
 type Props = {
-  promise: Promise<Carousel[]>;
+  carousel: Carousel[];
 };
 
-const CarouselHome = async ({ promise }: Props) => {
-  const carousel = await promise;
+const CarouselHome = ({ carousel }: Props) => {
   return (
     <>
       {carousel && (

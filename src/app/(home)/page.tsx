@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main>
       {/* <HeroSectionHome /> */}
-      <CarouselHome promise={carouselData} />
+      <Carru promise={carouselData} />
 
       {/* <div className="bg-gray-300  -pt-4 flex justify-center">
         <p className=" bg-primary text-white text-4xl font-bold text-center  px-20 rounded-t-3xl py-3">
@@ -42,6 +42,11 @@ export default function Home() {
   );
 }
 
+async function Carru({ promise }: { promise: Promise<Carousel[]> }) {
+  const carru = await promise;
+
+  return <CarouselHome carousel={carru} />;
+}
 async function ProjectsList({ promise }: { promise: Promise<Project[]> }) {
   const projects = await promise;
 
