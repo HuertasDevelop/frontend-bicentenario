@@ -11,6 +11,12 @@ export const getSlugProject = cache(async (slug: string) => {
       },
     }
   );
+
+  if (!res.ok) {
+    //redirect to 404
+    return null;
+  }
+
   const project = (await res.json()) as Project;
   return project;
 });

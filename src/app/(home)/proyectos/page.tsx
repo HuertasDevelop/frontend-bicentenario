@@ -4,6 +4,13 @@ import Image from "next/image";
 import { Suspense } from "react";
 import { ProjectDetail } from "../components";
 import { FormLead } from "@/components/forms";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bicentenario Inmobiliaria - Proyectos",
+  description:
+    "Bicentenario Inmobiliaria, cuenta con una amplia gama de proyectos inmobiliarios en Lima y provincias, conoce nuestros proyectos y encuentra el que más se adapte a tus necesidades.",
+};
 
 export default function Projects() {
   const projects = getProjects();

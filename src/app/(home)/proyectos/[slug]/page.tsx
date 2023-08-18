@@ -16,9 +16,16 @@ interface Props {
 }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = await getSlugProject(params.slug);
+  if (!project) {
+    return {
+      title: "Bicentenario Inmobiliaria - No encontrado",
+      description:
+        "Somos una empresa peruana, con experiencia en el sector inmobiliario, Inmobiliaria Bicentenario empresa 100% peruana encargada de brindarte la mejor oportunidad de invertir en tu futuro.",
+    };
+  }
 
   return {
-    title: `${project.name} - Lotemania`,
+    title: `${project.name} - Bicentenario Inmobiliaria`,
     description: project.description,
   };
 }
@@ -32,9 +39,13 @@ export default async function Project({ params }: Props) {
   );
 }
 
-async function ProjectDetail({ promise }: { promise: Promise<Project> }) {
+async function ProjectDetail({
+  promise,
+}: {
+  promise: Promise<Project | null>;
+}) {
   const project = await promise;
-  if (!project) return null;
+  if (!project) return <>No se encontro el proyecto</>;
 
   const {
     areas,
@@ -50,7 +61,6 @@ async function ProjectDetail({ promise }: { promise: Promise<Project> }) {
     link_google_maps,
     link_waze,
     photo_feature,
-    people_card,
     benefits,
     gallery,
   } = project;
@@ -106,7 +116,7 @@ async function ProjectDetail({ promise }: { promise: Promise<Project> }) {
                 Atributos del condominio
               </h2>
               <div className="bg-primary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 rounded-2xl">
-                {areas.map(({ id, name, photo }) => (
+                {areas?.map(({ id, name, photo }) => (
                   <div
                     key={id}
                     className=" bg-secondary-900 rounded-3xl flex justify-center items-center flex-col  p-3"

@@ -5,8 +5,9 @@ import { Setup } from "@/components/utils";
 import { Navbar, Footer, BannerHome } from "@/components/common";
 
 export const metadata: Metadata = {
-  title: "Full Auth",
-  description: "Full Auth application that provides jwt authentication",
+  title: "Bicentenario Inmobiliaria - Inicio",
+  description:
+    "Somos una empresa peruana, con experiencia en el sector inmobiliario, Inmobiliaria Bicentenario empresa 100% peruana encargada de brindarte la mejor oportunidad de invertir en tu futuro.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

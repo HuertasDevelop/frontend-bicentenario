@@ -1,3 +1,12 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bicentenario Inmobiliaria - No encontrado",
+  description:
+    "Somos una empresa peruana, con experiencia en el sector inmobiliario, Inmobiliaria Bicentenario empresa 100% peruana encargada de brindarte la mejor oportunidad de invertir en tu futuro.",
+};
+import "@/styles/globals.css";
+
 export default function NotFound() {
   return (
     <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">

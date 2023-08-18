@@ -39,6 +39,7 @@ interface Project {
   benefits: Benefit[];
   areas: Area[];
   gallery: Gallery[];
+  logo: string;
 }
 
 interface Carousel {
@@ -73,4 +74,34 @@ interface FormContact {
   message: string;
   document: string;
   type_document: string;
+}
+
+interface Contact {
+  id: number;
+  banner_top: string;
+  banner_bot: string;
+  people_photo: string;
+  photo_number_phone: string;
+  number_phone: number;
+}
+
+interface About {
+  id: number;
+  description: string;
+  banner_bg: string;
+  banner_info: string;
+}
+
+interface Stats {
+  id: number;
+  description: string;
+  title: string;
+}
+
+interface Office {
+  id: number;
+  address: string;
+  reference: string;
+  link_google_maps: string;
+  link_waze: string;
 }
